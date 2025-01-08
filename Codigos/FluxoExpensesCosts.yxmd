@@ -1,0 +1,2303 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2020.4">
+  <Nodes>
+    <Node ToolID="75">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="726" y="786" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="25">C:\Users\arogge003\Desktop\Fact_ProjectIncludedExpensesCosts_Analisys.xlsx|||arquivo_contabil_Analisys</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <PreserveFormat>False</PreserveFormat>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Fact_ProjectIncludedExpensesCosts_Analisys.xlsx
+Query=arquivo_contabil_Analisys</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="76">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="2634" y="378" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="25">C:\Users\arogge003\Desktop\Fact_ProjectIncludedExpensesCosts_Analisys.xlsx|||SaidaLeft</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <PreserveFormat>False</PreserveFormat>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Fact_ProjectIncludedExpensesCosts_Analisys.xlsx
+Query=SaidaLeft</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="70">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="857" y="365" width="757" height="333" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Arquivo origem: fProjectHistoryExpenses - Calcular IncludedExpenses</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="60">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="1242" y="426" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <AutoResetMode>Custom</AutoResetMode>
+              <MultiMetaInfo>
+                <MetaInfo name="#2">
+                  <RecordInfo>
+                    <Field name="FYPer_Key" source="File: aka:Conexao322|||Select gxzu2adbp322.BRdw.Dim_Calendar.Date_Key, gxzu2adbp322.BRdw.Dim_Calendar.FYPer_Key, gxzu2adbp322.BRdw.Dim_Calendar.EngDate From gxzu2adbp322.BRdw.Dim_Calendar" type="Int32" column="1" />
+                    <Field name="SUB_ENTITY" size="15" source="Formula: Right([SUB_ENTITY], 8)" type="String" column="2" />
+                    <Field name="AMOUNT" source="Formula: [AMOUNT]*-1" type="Double" column="3" />
+                    <Field name="PROJECT_NO" size="8" source="File: aka:Conexao322_STG|||select BRdw_STG.fGLDetail.SUB_ENTITY,&#xA; BRdw_STG.fGLDetail.ACCTG_DATE,&#xA; BRdw_STG.fGLDetail.TRXTYPE,&#xA; BRdw_STG.fGLDetail.AMOUNT,&#xA; BRdw_STG.fGLDetail.PROJECT_NO,&#xA; BRdw_STG.fGLDetail.JOB_NO,&#xA; BRdw_STG.fGLDetail.ENTITY,&#xA; BRdw_STG.fGLDetail.ACCOUNT &#xA;from BRdw_STG.fGLDetail &#xA;where BRdw_STG.fGLDetail.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108') &#xA;&#xA;union all&#xA;&#xA;select BRdw_STG.fGLDetailHist.SUB_ENTITY,&#xA; BRdw_STG.fGLDetailHist.ACCTG_DATE,&#xA; BRdw_STG.fGLDetailHist.TRXTYPE,&#xA; BRdw_STG.fGLDetailHist.AMOUNT,&#xA; BRdw_STG.fGLDetailHist.PROJECT_NO,&#xA; BRdw_STG.fGLDetailHist.JOB_NO,&#xA; BRdw_STG.fGLDetailHist.ENTITY,&#xA; BRdw_STG.fGLDetailHist.ACCOUNT &#xA;from BRdw_STG.fGLDetailHist &#xA;where BRdw_STG.fGLDetailHist.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108')" type="String" column="4" />
+                    <Field name="JOB_NO" size="4" source="File: aka:Conexao322_STG|||select BRdw_STG.fGLDetail.SUB_ENTITY,&#xA; BRdw_STG.fGLDetail.ACCTG_DATE,&#xA; BRdw_STG.fGLDetail.TRXTYPE,&#xA; BRdw_STG.fGLDetail.AMOUNT,&#xA; BRdw_STG.fGLDetail.PROJECT_NO,&#xA; BRdw_STG.fGLDetail.JOB_NO,&#xA; BRdw_STG.fGLDetail.ENTITY,&#xA; BRdw_STG.fGLDetail.ACCOUNT &#xA;from BRdw_STG.fGLDetail &#xA;where BRdw_STG.fGLDetail.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108') &#xA;&#xA;union all&#xA;&#xA;select BRdw_STG.fGLDetailHist.SUB_ENTITY,&#xA; BRdw_STG.fGLDetailHist.ACCTG_DATE,&#xA; BRdw_STG.fGLDetailHist.TRXTYPE,&#xA; BRdw_STG.fGLDetailHist.AMOUNT,&#xA; BRdw_STG.fGLDetailHist.PROJECT_NO,&#xA; BRdw_STG.fGLDetailHist.JOB_NO,&#xA; BRdw_STG.fGLDetailHist.ENTITY,&#xA; BRdw_STG.fGLDetailHist.ACCOUNT &#xA;from BRdw_STG.fGLDetailHist &#xA;where BRdw_STG.fGLDetailHist.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108')" type="String" column="5" />
+                    <Field name="ENTITY" size="15" source="Formula: Left([PROJECT_NO], 2)" type="String" column="6" />
+                  </RecordInfo>
+                </MetaInfo>
+                <MetaInfo name="#1">
+                  <RecordInfo>
+                    <Field name="FYPer_Key" source="File: aka:Conexao322|||Select gxzu2adbp322.BRdw.Dim_Calendar.Date_Key, gxzu2adbp322.BRdw.Dim_Calendar.FYPer_Key, gxzu2adbp322.BRdw.Dim_Calendar.EngDate From gxzu2adbp322.BRdw.Dim_Calendar" type="Int32" column="1" />
+                    <Field name="SUB_ENTITY" size="15" source="Formula: Right([SUB_ENTITY], 8)" type="String" column="2" />
+                    <Field name="AMT" source="Formula: -[AMT]" type="Double" column="3" />
+                    <Field name="PROJECT" size="8" source="File: aka:Conexao322_STG|||select BRdw_STG.fProjectHistoryExpensesFull.PROJECT,&#xA; BRdw_STG.fProjectHistoryExpensesFull.JOB,&#xA; BRdw_STG.fProjectHistoryExpensesFull.SUB_ENTITY,&#xA; BRdw_STG.fProjectHistoryExpensesFull.ACCTG_DATE,&#xA; BRdw_STG.fProjectHistoryExpensesFull.AMT,&#xA; BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE,&#xA; BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER &#xA;from BRdw_STG.fProjectHistoryExpensesFull &#xA;where BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE = 'INCLUDED' &#xA; and BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER in ('4215010084', '4215010085', '4215010086', '4903010108')" type="String" column="4" />
+                    <Field name="JOB" size="4" source="File: aka:Conexao322_STG|||select BRdw_STG.fProjectHistoryExpensesFull.PROJECT,&#xA; BRdw_STG.fProjectHistoryExpensesFull.JOB,&#xA; BRdw_STG.fProjectHistoryExpensesFull.SUB_ENTITY,&#xA; BRdw_STG.fProjectHistoryExpensesFull.ACCTG_DATE,&#xA; BRdw_STG.fProjectHistoryExpensesFull.AMT,&#xA; BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE,&#xA; BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER &#xA;from BRdw_STG.fProjectHistoryExpensesFull &#xA;where BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE = 'INCLUDED' &#xA; and BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER in ('4215010084', '4215010085', '4215010086', '4903010108')" type="String" column="5" />
+                    <Field name="Entity" size="2" source="Formula: Left([SUB_ENTITY], 2)" type="String" column="6" />
+                  </RecordInfo>
+                </MetaInfo>
+              </MultiMetaInfo>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ManualDelayed</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="61">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1146" y="450" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="ACCTG_DATE" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="EngDate" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="True" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_Date_Key" selected="False" rename="DateAccount_Key" input="Right_" />
+                    <SelectField field="Right_FYPer_Key" selected="True" input="Right_" />
+                    <SelectField field="Left_SUB_ENTITY" selected="True" input="Left_" />
+                    <SelectField field="Left_AMT" selected="True" input="Left_" />
+                    <SelectField field="Left_PROJECT" selected="True" input="Left_" />
+                    <SelectField field="Left_JOB" selected="True" input="Left_" />
+                    <SelectField field="Left_ACCTG_DATE" selected="False" input="Left_" />
+                    <SelectField field="Right_EngDate" selected="False" input="Right_" />
+                    <SelectField field="Left_Entity" selected="True" input="Left_" />
+                    <SelectField field="*Unknown" selected="False" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="62">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="966" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="63">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="882" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <CachedCosmeticName />
+              <File RecordLimit="" FileFormat="23">aka:Conexao322|||Select gxzu2adbp322.BRdw.Dim_Calendar.Date_Key, gxzu2adbp322.BRdw.Dim_Calendar.FYPer_Key, gxzu2adbp322.BRdw.Dim_Calendar.EngDate From gxzu2adbp322.BRdw.Dim_Calendar</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>BRdw.Dim_Calendar</AnnotationText>
+              <DefaultAnnotationText>aka:Conexao322
+Query=Select gxzu2adbp322.BRdw.Dim...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Date_Key" source="File: aka:Conexao322|||Select gxzu2adbp322.BRdw.Dim_Calendar.Date_Key, gxzu2adbp322.BRdw.Dim_Calendar.FYPer_Key, gxzu2adbp322.BRdw.Dim_Calendar.EngDate From gxzu2adbp322.BRdw.Dim_Calendar" type="Int32" />
+                <Field name="FYPer_Key" source="File: aka:Conexao322|||Select gxzu2adbp322.BRdw.Dim_Calendar.Date_Key, gxzu2adbp322.BRdw.Dim_Calendar.FYPer_Key, gxzu2adbp322.BRdw.Dim_Calendar.EngDate From gxzu2adbp322.BRdw.Dim_Calendar" type="Int32" />
+                <Field name="EngDate" size="10" source="File: aka:Conexao322|||Select gxzu2adbp322.BRdw.Dim_Calendar.Date_Key, gxzu2adbp322.BRdw.Dim_Calendar.FYPer_Key, gxzu2adbp322.BRdw.Dim_Calendar.EngDate From gxzu2adbp322.BRdw.Dim_Calendar" type="String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="64">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="1530" y="450" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="FYPer_Key" action="GroupBy" rename="FYPer" />
+                <SummarizeField field="SUB_ENTITY" action="GroupBy" rename="SUB_ENTITY" />
+                <SummarizeField field="AMT" action="Sum" rename="Included_Base" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="65">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1434" y="450" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="66">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1050" y="450" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Left([SUB_ENTITY], 2)" field="Entity" size="2" type="String" />
+                <FormulaField expression="Right([SUB_ENTITY], 8)" field="SUB_ENTITY" size="15" type="String" />
+                <FormulaField expression="-[AMT]" field="AMT" size="8" type="Double" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText><![CDATA[Entity = Left([SUB_ENTITY], 2)
+
+SUB_ENTITY = Right([SUB_ENTITY], 8)
+
+AMT = -[AMT] (****)
+]]></AnnotationText>
+              <DefaultAnnotationText><![CDATA[Entity = Left([SUB_ENTITY], 2)
+SUB_ENTITY = Right([SUB_ENTITY], 8)
+AMT = -[AMT]
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="67">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="966" y="449" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="ACCTG_DATE" selected="True" type="String" size="10" />
+                <SelectField field="JOB_TYPE_CODE" selected="False" />
+                <SelectField field="ACCOUNT_NUMBER" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="68">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="882" y="450" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <CachedCosmeticName />
+              <File RecordLimit="" FileFormat="23">aka:Conexao322_STG|||select BRdw_STG.fProjectHistoryExpensesFull.PROJECT,
+	BRdw_STG.fProjectHistoryExpensesFull.JOB,
+	BRdw_STG.fProjectHistoryExpensesFull.SUB_ENTITY,
+	BRdw_STG.fProjectHistoryExpensesFull.ACCTG_DATE,
+	BRdw_STG.fProjectHistoryExpensesFull.AMT,
+	BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE,
+	BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER 
+from BRdw_STG.fProjectHistoryExpensesFull 
+where BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE = 'INCLUDED' 
+	and BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER in ('4215010084', '4215010085', '4215010086', '4903010108')</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Conexao322_STG.fProjectHistoryExpensesFull</AnnotationText>
+              <DefaultAnnotationText>aka:Conexao322_STG
+Query=select BRdw_STG.fProjectHist...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="PROJECT" size="8" source="File: aka:Conexao322_STG|||select BRdw_STG.fProjectHistoryExpensesFull.PROJECT,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.JOB,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.SUB_ENTITY,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.ACCTG_DATE,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.AMT,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER &#xA;from BRdw_STG.fProjectHistoryExpensesFull &#xA;where BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE = 'INCLUDED' &#xA;	and BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER in ('4215010084', '4215010085', '4215010086', '4903010108')" type="String" />
+                <Field name="JOB" size="4" source="File: aka:Conexao322_STG|||select BRdw_STG.fProjectHistoryExpensesFull.PROJECT,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.JOB,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.SUB_ENTITY,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.ACCTG_DATE,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.AMT,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER &#xA;from BRdw_STG.fProjectHistoryExpensesFull &#xA;where BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE = 'INCLUDED' &#xA;	and BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER in ('4215010084', '4215010085', '4215010086', '4903010108')" type="String" />
+                <Field name="SUB_ENTITY" size="15" source="File: aka:Conexao322_STG|||select BRdw_STG.fProjectHistoryExpensesFull.PROJECT,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.JOB,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.SUB_ENTITY,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.ACCTG_DATE,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.AMT,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER &#xA;from BRdw_STG.fProjectHistoryExpensesFull &#xA;where BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE = 'INCLUDED' &#xA;	and BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER in ('4215010084', '4215010085', '4215010086', '4903010108')" type="String" />
+                <Field name="ACCTG_DATE" source="File: aka:Conexao322_STG|||select BRdw_STG.fProjectHistoryExpensesFull.PROJECT,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.JOB,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.SUB_ENTITY,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.ACCTG_DATE,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.AMT,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER &#xA;from BRdw_STG.fProjectHistoryExpensesFull &#xA;where BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE = 'INCLUDED' &#xA;	and BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER in ('4215010084', '4215010085', '4215010086', '4903010108')" type="Date" />
+                <Field name="AMT" source="File: aka:Conexao322_STG|||select BRdw_STG.fProjectHistoryExpensesFull.PROJECT,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.JOB,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.SUB_ENTITY,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.ACCTG_DATE,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.AMT,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER &#xA;from BRdw_STG.fProjectHistoryExpensesFull &#xA;where BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE = 'INCLUDED' &#xA;	and BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER in ('4215010084', '4215010085', '4215010086', '4903010108')" type="Double" />
+                <Field name="JOB_TYPE_CODE" size="10" source="File: aka:Conexao322_STG|||select BRdw_STG.fProjectHistoryExpensesFull.PROJECT,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.JOB,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.SUB_ENTITY,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.ACCTG_DATE,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.AMT,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER &#xA;from BRdw_STG.fProjectHistoryExpensesFull &#xA;where BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE = 'INCLUDED' &#xA;	and BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER in ('4215010084', '4215010085', '4215010086', '4903010108')" type="String" />
+                <Field name="ACCOUNT_NUMBER" size="15" source="File: aka:Conexao322_STG|||select BRdw_STG.fProjectHistoryExpensesFull.PROJECT,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.JOB,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.SUB_ENTITY,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.ACCTG_DATE,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.AMT,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE,&#xA;	BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER &#xA;from BRdw_STG.fProjectHistoryExpensesFull &#xA;where BRdw_STG.fProjectHistoryExpensesFull.JOB_TYPE_CODE = 'INCLUDED' &#xA;	and BRdw_STG.fProjectHistoryExpensesFull.ACCOUNT_NUMBER in ('4215010084', '4215010085', '4215010086', '4903010108')" type="String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="69">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1338" y="450" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>REGEX_Match([Entity], '[0-9]*')</Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>REGEX_Match([Entity], '[0-9]*')</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="72">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="1038" y="414" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>AMT sofrendo transformação negativa.</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="4" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="2921" y="376" width="589" height="345" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 48</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="22">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2946" y="498" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="23">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="3030" y="606" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <CachedCosmeticName />
+              <File RecordLimit="" FileFormat="23"><![CDATA[aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,
+	BRdw.Dim_ProjectJob.Entity_Key,
+	BRdw.Dim_ProjectJob.ProfitCenter_Key,
+	BRdw.Dim_ProjectJob.ResultCenter_Key,
+	BRdw.Dim_ProjectJob.Office_Key,
+	BRdw.Dim_ProjectJob.Region_Key,
+	BRdw.Dim_ProjectJob.LoS_Key,
+	BRdw.Dim_ProjectJob.Customers_Key,
+	BRdw.Dim_ProjectJob.Service_Key,
+	BRdw.Dim_ProjectJob.ProjectOwner_Key,
+	BRdw.Dim_ProjectJob.ProjectManager_Key,
+	BRdw.Dim_ProjectJob.JobOwner_Key,
+	BRdw.Dim_ProjectJob.JobManager_Key,
+	BRdw.Dim_ProjectJob.JobSecondOwner_Key,
+	BRdw.Dim_ProjectJob.COD_Project,
+	BRdw.Dim_ProjectJob.COD_Job 
+from BRdw.Dim_ProjectJob ]]></File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Conexao322.Dim_ProjectJob</AnnotationText>
+              <DefaultAnnotationText>aka:Conexao322
+Query=select BRdw.Dim_ProjectJob.P...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="ProjectJob_Key" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="Int32" />
+                <Field name="Entity_Key" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="Int32" />
+                <Field name="ProfitCenter_Key" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="Int32" />
+                <Field name="ResultCenter_Key" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="Int32" />
+                <Field name="Office_Key" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="Int32" />
+                <Field name="Region_Key" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="Int32" />
+                <Field name="LoS_Key" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="Int32" />
+                <Field name="Customers_Key" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="Int32" />
+                <Field name="Service_Key" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="Int32" />
+                <Field name="ProjectOwner_Key" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="Int32" />
+                <Field name="ProjectManager_Key" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="Int32" />
+                <Field name="JobOwner_Key" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="Int32" />
+                <Field name="JobManager_Key" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="Int32" />
+                <Field name="JobSecondOwner_Key" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="Int32" />
+                <Field name="COD_Project" size="8" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="String" />
+                <Field name="COD_Job" size="4" source="File: aka:Conexao322|||select BRdw.Dim_ProjectJob.ProjectJob_Key,&#xA;	BRdw.Dim_ProjectJob.Entity_Key,&#xA;	BRdw.Dim_ProjectJob.ProfitCenter_Key,&#xA;	BRdw.Dim_ProjectJob.ResultCenter_Key,&#xA;	BRdw.Dim_ProjectJob.Office_Key,&#xA;	BRdw.Dim_ProjectJob.Region_Key,&#xA;	BRdw.Dim_ProjectJob.LoS_Key,&#xA;	BRdw.Dim_ProjectJob.Customers_Key,&#xA;	BRdw.Dim_ProjectJob.Service_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectOwner_Key,&#xA;	BRdw.Dim_ProjectJob.ProjectManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobOwner_Key,&#xA;	BRdw.Dim_ProjectJob.JobManager_Key,&#xA;	BRdw.Dim_ProjectJob.JobSecondOwner_Key,&#xA;	BRdw.Dim_ProjectJob.COD_Project,&#xA;	BRdw.Dim_ProjectJob.COD_Job &#xA;from BRdw.Dim_ProjectJob " type="String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="24">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="3102" y="522" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="COD_Project" />
+                <Field field="COD_Job" />
+                <Field field="Entity_Key" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="COD_Project" />
+                <Field field="COD_Job" />
+                <Field field="Entity_Key" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_Entity_Key" selected="True" rename="Right_Entity_Key" input="Right_" />
+                    <SelectField field="Right_COD_Project" selected="False" rename="Right_COD_Project" input="Right_" />
+                    <SelectField field="Right_COD_Job" selected="False" rename="Right_COD_Job" input="Right_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="25">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="3102" y="606" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <CachedCosmeticName />
+              <File RecordLimit="" FileFormat="23"><![CDATA[aka:Conexao322|||select BRdw.Dim_FiscalYear.FYPer_Key 
+from BRdw.Dim_FiscalYear ]]></File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Conexao322.BRdw.Dim_FiscalYear</AnnotationText>
+              <DefaultAnnotationText>aka:Conexao322
+Query=select BRdw.Dim_FiscalYear.F...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="FYPer_Key" source="File: aka:Conexao322|||select BRdw.Dim_FiscalYear.FYPer_Key &#xA;from BRdw.Dim_FiscalYear " type="Int32" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="26">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="3174" y="606" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="FYPer_Key" selected="True" type="String" size="11" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="27">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="3258" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="FYPer" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="FYPer_Key" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_FYPer" selected="False" input="Left_" />
+                    <SelectField field="Left_BusinessUnit" selected="False" input="Left_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="28">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="3342" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="DateTimeNow()" field="RowInsertDateTime" size="19" type="DateTime" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[RowInsertDateTime = DateTimeNow()
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="29">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="3426" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="ProjectJob_Key" selected="True" />
+                <SelectField field="Entity_Key" selected="True" />
+                <SelectField field="ProfitCenter_Key" selected="True" />
+                <SelectField field="ResultCenter_Key" selected="True" />
+                <SelectField field="Office_Key" selected="True" />
+                <SelectField field="Region_Key" selected="True" />
+                <SelectField field="LoS_Key" selected="True" />
+                <SelectField field="Customers_Key" selected="True" />
+                <SelectField field="Service_Key" selected="True" />
+                <SelectField field="ProjectOwner_Key" selected="True" />
+                <SelectField field="ProjectManager_Key" selected="True" />
+                <SelectField field="JobOwner_Key" selected="True" />
+                <SelectField field="JobManager_Key" selected="True" />
+                <SelectField field="JobSecondOwner_Key" selected="True" />
+                <SelectField field="FYPer_Key" selected="True" />
+                <SelectField field="IncludedExpenses" selected="True" rename="VAL_IncludedExpensesCosts" />
+                <SelectField field="RowInsertDateTime" selected="True" />
+                <SelectField field="Right_Entity_Key" selected="False" />
+                <SelectField field="COD_Project" selected="True" />
+                <SelectField field="COD_Job" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="30">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="3174" y="522" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="FYPer" selected="True" type="String" size="11" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="31">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="2946" y="605" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" FileFormat="23">aka:Conexao322|||Select gxzu2adbp322.BRdw.Dim_Entity.Entity_Key, gxzu2adbp322.BRdw.Dim_Entity.EntityId From gxzu2adbp322.BRdw.Dim_Entity</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Conexao322.BRdw.Dim_Entity</AnnotationText>
+              <DefaultAnnotationText>aka:Conexao322
+Query=Select gxzu2adbp322.BRdw.Dim...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Entity_Key" source="File: aka:Conexao322|||Select gxzu2adbp322.BRdw.Dim_Entity.Entity_Key, gxzu2adbp322.BRdw.Dim_Entity.EntityId From gxzu2adbp322.BRdw.Dim_Entity" type="Int32" />
+                <Field name="EntityId" size="2" source="File: aka:Conexao322|||Select gxzu2adbp322.BRdw.Dim_Entity.Entity_Key, gxzu2adbp322.BRdw.Dim_Entity.EntityId From gxzu2adbp322.BRdw.Dim_Entity" type="String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="32">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="3030" y="510" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="EntityId" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="EntityId" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="True" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_Entity_Key" selected="True" input="Right_" />
+                    <SelectField field="Left_FYPer" selected="True" input="Left_" />
+                    <SelectField field="Left_EntityId" selected="False" input="Left_" />
+                    <SelectField field="Left_COD_Project" selected="True" input="Left_" />
+                    <SelectField field="Left_COD_Job" selected="True" input="Left_" />
+                    <SelectField field="Left_BusinessUnit" selected="True" input="Left_" />
+                    <SelectField field="Left_IncludedExpenses" selected="True" input="Left_" />
+                    <SelectField field="Right_EntityId" selected="False" rename="Right_EntityId" input="Right_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="33">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="3006" y="425" width="100" height="88" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Neste JOIN estão ficando orfãos ENTITYS que estão iniciando com letras... BD/BH/BS</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="4" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="533" y="136" width="613" height="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Adicionar PJ's Manuais em empresa Gerencial</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="4">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="558" y="186" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>[TRXTYPE] = "5" or [TRXTYPE] = "21" or [TRXTYPE] = "22"</Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>[TRXTYPE] = "5"
+or [TRXTYPE] = "21"
+or [TRXTYPE] = "22"</AnnotationText>
+              <DefaultAnnotationText>[TRXTYPE] = "5" or [TRXTYPE] = "21" or [TRXTYPE] = "22"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="774" y="186" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>!IsNull([PROJECT_NO]) or !IsEmpty([PROJECT_NO])</Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>!IsNull([PROJECT_NO]) or !IsEmpty([PROJECT_NO])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="6">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="870" y="186" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="ENTITY" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="7">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="954" y="186" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Left([PROJECT_NO], 2)" field="ENTITY" size="15" type="String" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[ENTITY = Left([PROJECT_NO], 2)
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="8">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1062" y="186" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="FYPer_Key" selected="True" />
+                <SelectField field="TRXTYPE" selected="False" />
+                <SelectField field="SUB_ENTITY" selected="True" />
+                <SelectField field="AMOUNT" selected="True" />
+                <SelectField field="PROJECT_NO" selected="True" />
+                <SelectField field="JOB_NO" selected="True" />
+                <SelectField field="Entity" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="9">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="678" y="185" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>=</Operator>
+                <Field>ENTITY</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2022-07-27 20:08:45</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>9800000000</Operand>
+                  <StartDate>2022-07-27 20:08:45</StartDate>
+                  <EndDate>2022-07-27 20:08:45</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[ENTITY] = "9800000000"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="112" y="617" width="565" height="309" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Arquivo contabil: GLDetail</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="11">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="510" y="702" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="TRXTYPE" selected="False" />
+                <SelectField field="PROJECT_NO" selected="False" />
+                <SelectField field="JOB_NO" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="12">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="318" y="702" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="ACCTG_DATE" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="EngDate" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="True" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_FYPer_Key" selected="True" input="Right_" />
+                    <SelectField field="Right_EngDate" selected="False" input="Right_" />
+                    <SelectField field="Right_Date_Key" selected="False" input="Right_" />
+                    <SelectField field="Left_TRXTYPE" selected="True" input="Left_" />
+                    <SelectField field="Left_SUB_ENTITY" selected="True" input="Left_" />
+                    <SelectField field="Left_PROJECT_NO" selected="True" input="Left_" />
+                    <SelectField field="Left_JOB_NO" selected="True" input="Left_" />
+                    <SelectField field="Left_AMOUNT" selected="True" input="Left_" />
+                    <SelectField field="Left_ACCTG_DATE" selected="False" input="Left_" />
+                    <SelectField field="Left_ENTITY" selected="True" input="Left_" />
+                    <SelectField field="Left_ACCOUNT" selected="False" input="Left_" />
+                    <SelectField field="*Unknown" selected="False" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="13">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="234" y="810" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="14">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="138" y="810" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <CachedCosmeticName />
+              <File RecordLimit="" FileFormat="23">aka:Conexao322|||Select gxzu2adbp322.BRdw.Dim_Calendar.Date_Key, gxzu2adbp322.BRdw.Dim_Calendar.FYPer_Key, gxzu2adbp322.BRdw.Dim_Calendar.EngDate From gxzu2adbp322.BRdw.Dim_Calendar</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Conexao322.Dim_Calendar</AnnotationText>
+              <DefaultAnnotationText>aka:Conexao322
+Query=Select gxzu2adbp322.BRdw.Dim...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Date_Key" source="File: aka:Conexao322|||Select gxzu2adbp322.BRdw.Dim_Calendar.Date_Key, gxzu2adbp322.BRdw.Dim_Calendar.FYPer_Key, gxzu2adbp322.BRdw.Dim_Calendar.EngDate From gxzu2adbp322.BRdw.Dim_Calendar" type="Int32" />
+                <Field name="FYPer_Key" source="File: aka:Conexao322|||Select gxzu2adbp322.BRdw.Dim_Calendar.Date_Key, gxzu2adbp322.BRdw.Dim_Calendar.FYPer_Key, gxzu2adbp322.BRdw.Dim_Calendar.EngDate From gxzu2adbp322.BRdw.Dim_Calendar" type="Int32" />
+                <Field name="EngDate" size="10" source="File: aka:Conexao322|||Select gxzu2adbp322.BRdw.Dim_Calendar.Date_Key, gxzu2adbp322.BRdw.Dim_Calendar.FYPer_Key, gxzu2adbp322.BRdw.Dim_Calendar.EngDate From gxzu2adbp322.BRdw.Dim_Calendar" type="String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="15">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="594" y="702" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="FYPer_Key" action="GroupBy" rename="FYPer" />
+                <SummarizeField field="SUB_ENTITY" action="GroupBy" rename="BusinessUnit" />
+                <SummarizeField field="AMOUNT" action="Sum" rename="Included_Ledger" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="16">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="414" y="702" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Right([SUB_ENTITY], 8)" field="SUB_ENTITY" size="15" type="String" />
+                <FormulaField expression="[AMOUNT]*-1" field="AMOUNT" size="8" type="Double" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[SUB_ENTITY = Right([SUB_ENTITY], 8)
+AMOUNT = [AMOUNT]*-1
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="17">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="234" y="702" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="SUB_ENTITY" selected="True" />
+                <SelectField field="ACCTG_DATE" selected="True" type="String" size="10" />
+                <SelectField field="TRXTYPE" selected="True" />
+                <SelectField field="AMOUNT" selected="True" />
+                <SelectField field="PROJECT_NO" selected="True" />
+                <SelectField field="JOB_NO" selected="True" />
+                <SelectField field="ENTITY" selected="True" />
+                <SelectField field="ACCOUNT" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="18">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="137" y="702" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <CachedCosmeticName />
+              <File RecordLimit="" FileFormat="23">aka:Conexao322_STG|||select BRdw_STG.fGLDetail.SUB_ENTITY,
+	BRdw_STG.fGLDetail.ACCTG_DATE,
+	BRdw_STG.fGLDetail.TRXTYPE,
+	BRdw_STG.fGLDetail.AMOUNT,
+	BRdw_STG.fGLDetail.PROJECT_NO,
+	BRdw_STG.fGLDetail.JOB_NO,
+	BRdw_STG.fGLDetail.ENTITY,
+	BRdw_STG.fGLDetail.ACCOUNT 
+from BRdw_STG.fGLDetail 
+where BRdw_STG.fGLDetail.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108') 
+
+union all
+
+select BRdw_STG.fGLDetailHist.SUB_ENTITY,
+	BRdw_STG.fGLDetailHist.ACCTG_DATE,
+	BRdw_STG.fGLDetailHist.TRXTYPE,
+	BRdw_STG.fGLDetailHist.AMOUNT,
+	BRdw_STG.fGLDetailHist.PROJECT_NO,
+	BRdw_STG.fGLDetailHist.JOB_NO,
+	BRdw_STG.fGLDetailHist.ENTITY,
+	BRdw_STG.fGLDetailHist.ACCOUNT 
+from BRdw_STG.fGLDetailHist 
+where BRdw_STG.fGLDetailHist.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108')</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <CacheData>True</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Conexao322_STG.fGLDetail</AnnotationText>
+              <DefaultAnnotationText>aka:Conexao322_STG
+Query=select BRdw_STG.fGLDetail.SU...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="SUB_ENTITY" size="15" source="File: aka:Conexao322_STG|||select BRdw_STG.fGLDetail.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetail.TRXTYPE,&#xA;	BRdw_STG.fGLDetail.AMOUNT,&#xA;	BRdw_STG.fGLDetail.PROJECT_NO,&#xA;	BRdw_STG.fGLDetail.JOB_NO,&#xA;	BRdw_STG.fGLDetail.ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCOUNT &#xA;from BRdw_STG.fGLDetail &#xA;where BRdw_STG.fGLDetail.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108') &#xA;&#xA;union all&#xA;&#xA;select BRdw_STG.fGLDetailHist.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetailHist.TRXTYPE,&#xA;	BRdw_STG.fGLDetailHist.AMOUNT,&#xA;	BRdw_STG.fGLDetailHist.PROJECT_NO,&#xA;	BRdw_STG.fGLDetailHist.JOB_NO,&#xA;	BRdw_STG.fGLDetailHist.ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCOUNT &#xA;from BRdw_STG.fGLDetailHist &#xA;where BRdw_STG.fGLDetailHist.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108')" type="String" />
+                <Field name="ACCTG_DATE" source="File: aka:Conexao322_STG|||select BRdw_STG.fGLDetail.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetail.TRXTYPE,&#xA;	BRdw_STG.fGLDetail.AMOUNT,&#xA;	BRdw_STG.fGLDetail.PROJECT_NO,&#xA;	BRdw_STG.fGLDetail.JOB_NO,&#xA;	BRdw_STG.fGLDetail.ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCOUNT &#xA;from BRdw_STG.fGLDetail &#xA;where BRdw_STG.fGLDetail.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108') &#xA;&#xA;union all&#xA;&#xA;select BRdw_STG.fGLDetailHist.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetailHist.TRXTYPE,&#xA;	BRdw_STG.fGLDetailHist.AMOUNT,&#xA;	BRdw_STG.fGLDetailHist.PROJECT_NO,&#xA;	BRdw_STG.fGLDetailHist.JOB_NO,&#xA;	BRdw_STG.fGLDetailHist.ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCOUNT &#xA;from BRdw_STG.fGLDetailHist &#xA;where BRdw_STG.fGLDetailHist.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108')" type="Date" />
+                <Field name="TRXTYPE" size="5" source="File: aka:Conexao322_STG|||select BRdw_STG.fGLDetail.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetail.TRXTYPE,&#xA;	BRdw_STG.fGLDetail.AMOUNT,&#xA;	BRdw_STG.fGLDetail.PROJECT_NO,&#xA;	BRdw_STG.fGLDetail.JOB_NO,&#xA;	BRdw_STG.fGLDetail.ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCOUNT &#xA;from BRdw_STG.fGLDetail &#xA;where BRdw_STG.fGLDetail.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108') &#xA;&#xA;union all&#xA;&#xA;select BRdw_STG.fGLDetailHist.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetailHist.TRXTYPE,&#xA;	BRdw_STG.fGLDetailHist.AMOUNT,&#xA;	BRdw_STG.fGLDetailHist.PROJECT_NO,&#xA;	BRdw_STG.fGLDetailHist.JOB_NO,&#xA;	BRdw_STG.fGLDetailHist.ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCOUNT &#xA;from BRdw_STG.fGLDetailHist &#xA;where BRdw_STG.fGLDetailHist.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108')" type="String" />
+                <Field name="AMOUNT" source="File: aka:Conexao322_STG|||select BRdw_STG.fGLDetail.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetail.TRXTYPE,&#xA;	BRdw_STG.fGLDetail.AMOUNT,&#xA;	BRdw_STG.fGLDetail.PROJECT_NO,&#xA;	BRdw_STG.fGLDetail.JOB_NO,&#xA;	BRdw_STG.fGLDetail.ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCOUNT &#xA;from BRdw_STG.fGLDetail &#xA;where BRdw_STG.fGLDetail.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108') &#xA;&#xA;union all&#xA;&#xA;select BRdw_STG.fGLDetailHist.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetailHist.TRXTYPE,&#xA;	BRdw_STG.fGLDetailHist.AMOUNT,&#xA;	BRdw_STG.fGLDetailHist.PROJECT_NO,&#xA;	BRdw_STG.fGLDetailHist.JOB_NO,&#xA;	BRdw_STG.fGLDetailHist.ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCOUNT &#xA;from BRdw_STG.fGLDetailHist &#xA;where BRdw_STG.fGLDetailHist.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108')" type="Double" />
+                <Field name="PROJECT_NO" size="8" source="File: aka:Conexao322_STG|||select BRdw_STG.fGLDetail.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetail.TRXTYPE,&#xA;	BRdw_STG.fGLDetail.AMOUNT,&#xA;	BRdw_STG.fGLDetail.PROJECT_NO,&#xA;	BRdw_STG.fGLDetail.JOB_NO,&#xA;	BRdw_STG.fGLDetail.ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCOUNT &#xA;from BRdw_STG.fGLDetail &#xA;where BRdw_STG.fGLDetail.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108') &#xA;&#xA;union all&#xA;&#xA;select BRdw_STG.fGLDetailHist.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetailHist.TRXTYPE,&#xA;	BRdw_STG.fGLDetailHist.AMOUNT,&#xA;	BRdw_STG.fGLDetailHist.PROJECT_NO,&#xA;	BRdw_STG.fGLDetailHist.JOB_NO,&#xA;	BRdw_STG.fGLDetailHist.ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCOUNT &#xA;from BRdw_STG.fGLDetailHist &#xA;where BRdw_STG.fGLDetailHist.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108')" type="String" />
+                <Field name="JOB_NO" size="4" source="File: aka:Conexao322_STG|||select BRdw_STG.fGLDetail.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetail.TRXTYPE,&#xA;	BRdw_STG.fGLDetail.AMOUNT,&#xA;	BRdw_STG.fGLDetail.PROJECT_NO,&#xA;	BRdw_STG.fGLDetail.JOB_NO,&#xA;	BRdw_STG.fGLDetail.ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCOUNT &#xA;from BRdw_STG.fGLDetail &#xA;where BRdw_STG.fGLDetail.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108') &#xA;&#xA;union all&#xA;&#xA;select BRdw_STG.fGLDetailHist.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetailHist.TRXTYPE,&#xA;	BRdw_STG.fGLDetailHist.AMOUNT,&#xA;	BRdw_STG.fGLDetailHist.PROJECT_NO,&#xA;	BRdw_STG.fGLDetailHist.JOB_NO,&#xA;	BRdw_STG.fGLDetailHist.ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCOUNT &#xA;from BRdw_STG.fGLDetailHist &#xA;where BRdw_STG.fGLDetailHist.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108')" type="String" />
+                <Field name="ENTITY" size="15" source="File: aka:Conexao322_STG|||select BRdw_STG.fGLDetail.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetail.TRXTYPE,&#xA;	BRdw_STG.fGLDetail.AMOUNT,&#xA;	BRdw_STG.fGLDetail.PROJECT_NO,&#xA;	BRdw_STG.fGLDetail.JOB_NO,&#xA;	BRdw_STG.fGLDetail.ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCOUNT &#xA;from BRdw_STG.fGLDetail &#xA;where BRdw_STG.fGLDetail.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108') &#xA;&#xA;union all&#xA;&#xA;select BRdw_STG.fGLDetailHist.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetailHist.TRXTYPE,&#xA;	BRdw_STG.fGLDetailHist.AMOUNT,&#xA;	BRdw_STG.fGLDetailHist.PROJECT_NO,&#xA;	BRdw_STG.fGLDetailHist.JOB_NO,&#xA;	BRdw_STG.fGLDetailHist.ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCOUNT &#xA;from BRdw_STG.fGLDetailHist &#xA;where BRdw_STG.fGLDetailHist.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108')" type="String" />
+                <Field name="ACCOUNT" size="15" source="File: aka:Conexao322_STG|||select BRdw_STG.fGLDetail.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetail.TRXTYPE,&#xA;	BRdw_STG.fGLDetail.AMOUNT,&#xA;	BRdw_STG.fGLDetail.PROJECT_NO,&#xA;	BRdw_STG.fGLDetail.JOB_NO,&#xA;	BRdw_STG.fGLDetail.ENTITY,&#xA;	BRdw_STG.fGLDetail.ACCOUNT &#xA;from BRdw_STG.fGLDetail &#xA;where BRdw_STG.fGLDetail.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108') &#xA;&#xA;union all&#xA;&#xA;select BRdw_STG.fGLDetailHist.SUB_ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCTG_DATE,&#xA;	BRdw_STG.fGLDetailHist.TRXTYPE,&#xA;	BRdw_STG.fGLDetailHist.AMOUNT,&#xA;	BRdw_STG.fGLDetailHist.PROJECT_NO,&#xA;	BRdw_STG.fGLDetailHist.JOB_NO,&#xA;	BRdw_STG.fGLDetailHist.ENTITY,&#xA;	BRdw_STG.fGLDetailHist.ACCOUNT &#xA;from BRdw_STG.fGLDetailHist &#xA;where BRdw_STG.fGLDetailHist.ACCOUNT in ('4215010084', '4215010085', '4215010086', '4903010108')" type="String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="73">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="402" y="666" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>AMT multiplicado por -1.</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="4" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="3653" y="449" width="156" height="165" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 50</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="20">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="3678" y="498" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="25">C:\Users\arogge003\Desktop\Fact_ProjectIncludedExpensesCosts_Analisys.xlsx|||ArquivoTotal</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <PreserveFormat>False</PreserveFormat>
+                <SkipFieldNames>False</SkipFieldNames>
+                <OutputOption>Overwrite</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Conexao322.Fact_ProjectIncluded</AnnotationText>
+              <DefaultAnnotationText>Fact_ProjectIncludedExpensesCosts_Analisys.xlsx
+Query=ArquivoTotal</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1637" y="629" width="841" height="180" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Conciliação: origem vs contabil</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="35">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="1758" y="678" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="FYPer" action="GroupBy" rename="FYPer" />
+                <SummarizeField field="SUB_ENTITY" action="GroupBy" rename="SUB_ENTITY" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="36">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1854" y="678" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="SUB_ENTITY" />
+                <Field field="FYPer" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="BusinessUnit" />
+                <Field field="FYPer" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_FYPer" selected="False" rename="Right_FYPer" input="Right_" />
+                    <SelectField field="Right_BusinessUnit" selected="False" rename="Right_BusinessUnit" input="Right_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="37">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="2034" y="678" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="SUB_ENTITY" />
+                <Field field="FYPer" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="SUB_ENTITY" />
+                <Field field="FYPer" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_FYPer" selected="False" rename="Right_FYPer" input="Right_" />
+                    <SelectField field="Right_SUB_ENTITY" selected="False" rename="Right_SUB_ENTITY" input="Right_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="38">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="2310" y="678" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="[Included_Ledger]-[Included_Base]" field="IncludedAdjust" size="4" type="Float" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[IncludedAdjust = [Included_Ledger]-[Included_Base]
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="39">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2394" y="678" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="40">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="1662" y="678" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <AutoResetMode>Custom</AutoResetMode>
+              <MultiMetaInfo>
+                <MetaInfo name="#2">
+                  <RecordInfo>
+                    <Field name="FYPer" source="Summarize: GroupBy - FYPer_Key" type="Int32" column="1" />
+                    <Field name="BusinessUnit" size="15" source="Summarize: GroupBy - SUB_ENTITY" type="String" column="2" />
+                    <Field name="Included_Ledger" source="Summarize: Sum - AMOUNT" type="Double" column="3" />
+                  </RecordInfo>
+                </MetaInfo>
+                <MetaInfo name="#1">
+                  <RecordInfo>
+                    <Field name="FYPer" source="Summarize: GroupBy - FYPer_Key" type="Int32" column="1" />
+                    <Field name="SUB_ENTITY" size="15" source="Summarize: GroupBy - SUB_ENTITY" type="String" column="2" />
+                    <Field name="Included_Base" source="Summarize: Sum - AMT" type="Double" column="3" />
+                  </RecordInfo>
+                </MetaInfo>
+              </MultiMetaInfo>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ManualDelayed</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="41">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="1950" y="714" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <AutoResetMode>ByName</AutoResetMode>
+              <MultiMetaInfo>
+                <MetaInfo name="#1">
+                  <RecordInfo>
+                    <Field name="FYPer" source="Summarize: GroupBy - FYPer" type="Int32" column="1" />
+                    <Field name="SUB_ENTITY" size="15" source="Summarize: GroupBy - SUB_ENTITY" type="String" column="2" />
+                    <Field name="Included_Ledger" source="Summarize: Sum - AMOUNT" type="Double" column="3" />
+                  </RecordInfo>
+                </MetaInfo>
+                <MetaInfo name="#2">
+                  <RecordInfo>
+                    <Field name="FYPer" source="Summarize: GroupBy - FYPer" type="Int32" column="1" />
+                    <Field name="SUB_ENTITY" size="15" source="Summarize: GroupBy - SUB_ENTITY" type="String" column="2" />
+                  </RecordInfo>
+                </MetaInfo>
+              </MultiMetaInfo>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ManualDelayed</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="42">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="2130" y="714" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <AutoResetMode>ByName</AutoResetMode>
+              <MultiMetaInfo>
+                <MetaInfo name="#1">
+                  <RecordInfo>
+                    <Field name="FYPer" source="Summarize: GroupBy - FYPer" type="Int32" column="1" />
+                    <Field name="SUB_ENTITY" size="15" source="Summarize: GroupBy - SUB_ENTITY" type="String" column="2" />
+                    <Field name="Included_Ledger" source="Summarize: Sum - AMOUNT" type="Double" column="3" />
+                    <Field name="Included_Base" source="Summarize: Sum - AMT" type="Double" column="4" />
+                  </RecordInfo>
+                </MetaInfo>
+                <MetaInfo name="#2">
+                  <RecordInfo>
+                    <Field name="FYPer" source="Summarize: GroupBy - FYPer" type="Int32" column="1" />
+                    <Field name="SUB_ENTITY" size="15" source="Summarize: GroupBy - SUB_ENTITY" type="String" column="2" />
+                    <Field name="Included_Ledger" source="Summarize: Sum - AMOUNT" type="Double" column="3" />
+                  </RecordInfo>
+                </MetaInfo>
+              </MultiMetaInfo>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ManualDelayed</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="43">
+          <GuiSettings>
+            <Position x="2214" y="678" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Check Box (135)">False</Value>
+              <Value name="Check Box (136)">False</Value>
+              <Value name="List Box (11)">"FYPer","SUB_ENTITY","Included_Ledger","Included_Base"</Value>
+              <Value name="Check Box (84)">True</Value>
+              <Value name="Check Box (117)">True</Value>
+              <Value name="Check Box (15)">False</Value>
+              <Value name="Check Box (109)">False</Value>
+              <Value name="Check Box (122)">False</Value>
+              <Value name="Check Box (53)">False</Value>
+              <Value name="Check Box (58)">False</Value>
+              <Value name="Check Box (70)">False</Value>
+              <Value name="Check Box (77)">False</Value>
+              <Value name="Drop Down (81)">upper</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="Cleanse.yxmc" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="54">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1613" y="821" width="901" height="195" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Captura de Projetos Genéricos</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="45">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="1638" y="870" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <CachedCosmeticName />
+              <File RecordLimit="" FileFormat="23">aka:Conexao322|||select C.EntityId,
+	B.COD_ProfitCenter,
+	A.COD_Project,
+	A.COD_Job,
+	A.FLAG_InternalBilling 
+from BRdw.Dim_ProjectJob as A 
+	left outer join BRdw.Dim_ProfitCenter as B on A.ProfitCenter_Key = B.ProfitCenter_Key 
+	left outer join BRdw.Dim_Entity as C on A.Entity_Key = C.Entity_Key 
+where A.COD_Project = '98000009'</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Conexao322.Dim_ProjectJob</AnnotationText>
+              <DefaultAnnotationText>aka:Conexao322
+Query=select C.EntityId,
+	B.COD_Pr...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="EntityId" size="2" source="File: aka:Conexao322|||select C.EntityId,&#xA;	B.COD_ProfitCenter,&#xA;	A.COD_Project,&#xA;	A.COD_Job,&#xA;	A.FLAG_InternalBilling &#xA;from BRdw.Dim_ProjectJob as A &#xA;	left outer join BRdw.Dim_ProfitCenter as B on A.ProfitCenter_Key = B.ProfitCenter_Key &#xA;	left outer join BRdw.Dim_Entity as C on A.Entity_Key = C.Entity_Key &#xA;where A.COD_Project = '98000009'" type="String" />
+                <Field name="COD_ProfitCenter" size="15" source="File: aka:Conexao322|||select C.EntityId,&#xA;	B.COD_ProfitCenter,&#xA;	A.COD_Project,&#xA;	A.COD_Job,&#xA;	A.FLAG_InternalBilling &#xA;from BRdw.Dim_ProjectJob as A &#xA;	left outer join BRdw.Dim_ProfitCenter as B on A.ProfitCenter_Key = B.ProfitCenter_Key &#xA;	left outer join BRdw.Dim_Entity as C on A.Entity_Key = C.Entity_Key &#xA;where A.COD_Project = '98000009'" type="V_String" />
+                <Field name="COD_Project" size="8" source="File: aka:Conexao322|||select C.EntityId,&#xA;	B.COD_ProfitCenter,&#xA;	A.COD_Project,&#xA;	A.COD_Job,&#xA;	A.FLAG_InternalBilling &#xA;from BRdw.Dim_ProjectJob as A &#xA;	left outer join BRdw.Dim_ProfitCenter as B on A.ProfitCenter_Key = B.ProfitCenter_Key &#xA;	left outer join BRdw.Dim_Entity as C on A.Entity_Key = C.Entity_Key &#xA;where A.COD_Project = '98000009'" type="String" />
+                <Field name="COD_Job" size="4" source="File: aka:Conexao322|||select C.EntityId,&#xA;	B.COD_ProfitCenter,&#xA;	A.COD_Project,&#xA;	A.COD_Job,&#xA;	A.FLAG_InternalBilling &#xA;from BRdw.Dim_ProjectJob as A &#xA;	left outer join BRdw.Dim_ProfitCenter as B on A.ProfitCenter_Key = B.ProfitCenter_Key &#xA;	left outer join BRdw.Dim_Entity as C on A.Entity_Key = C.Entity_Key &#xA;where A.COD_Project = '98000009'" type="String" />
+                <Field name="FLAG_InternalBilling" size="1" source="File: aka:Conexao322|||select C.EntityId,&#xA;	B.COD_ProfitCenter,&#xA;	A.COD_Project,&#xA;	A.COD_Job,&#xA;	A.FLAG_InternalBilling &#xA;from BRdw.Dim_ProjectJob as A &#xA;	left outer join BRdw.Dim_ProfitCenter as B on A.ProfitCenter_Key = B.ProfitCenter_Key &#xA;	left outer join BRdw.Dim_Entity as C on A.Entity_Key = C.Entity_Key &#xA;where A.COD_Project = '98000009'" type="String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="46">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1734" y="870" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="COD_ProfitCenter" selected="True" />
+                <SelectField field="COD_Project" selected="True" />
+                <SelectField field="COD_Job" selected="True" />
+                <SelectField field="EntityId" selected="True" />
+                <SelectField field="FLAG_InternalBilling" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="47">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1830" y="870" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Right([COD_ProfitCenter], 8)" field="BusinessUnit" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[BusinessUnit = Right([COD_ProfitCenter], 8)
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="48">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1926" y="870" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="COD_ProfitCenter" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="49">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="2046" y="870" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="[COD_Project]+[EntityId]+[BusinessUnit]" field="CHAVE" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[CHAVE = [COD_Project]+[EntityId]+[BusinessUnit]
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="50">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="2238" y="870" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="COD_Project" action="GroupBy" rename="COD_Project" />
+                <SummarizeField field="EntityId" action="GroupBy" rename="EntityId" />
+                <SummarizeField field="BusinessUnit" action="GroupBy" rename="BusinessUnit" />
+                <SummarizeField field="CHAVE" action="GroupBy" rename="CHAVE" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="51">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2142" y="870" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="COD_Job" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="52">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
+            <Position x="2334" y="894" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldFind>CHAVE</FieldFind>
+              <FieldSearch>CHAVE</FieldSearch>
+              <ReplaceFoundField>COD_Job</ReplaceFoundField>
+              <FindMode>FindAny</FindMode>
+              <NoCase value="False" />
+              <MatchWholeWord value="False" />
+              <ReplaceMode>Replace</ReplaceMode>
+              <ReplaceMultipleFound value="True" />
+              <ReplaceAppendFields />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
+        </Node>
+        <Node ToolID="53">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2430" y="870" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="COD_Project" selected="True" />
+                <SelectField field="CHAVE" selected="True" rename="COD_Job" />
+                <SelectField field="EntityId" selected="True" />
+                <SelectField field="BusinessUnit" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="59">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="2501" y="509" width="385" height="189" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Junção de Projeto Genérico com Conciliação</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="55">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="2526" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="SUB_ENTITY" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="BusinessUnit" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="True" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_COD_Project" selected="True" input="Right_" />
+                    <SelectField field="Right_COD_Job" selected="True" input="Right_" />
+                    <SelectField field="Left_FYPer" selected="True" input="Left_" />
+                    <SelectField field="Left_SUB_ENTITY" selected="True" input="Left_" />
+                    <SelectField field="Right_EntityId" selected="True" input="Right_" />
+                    <SelectField field="Left_IncludedAdjust" selected="True" input="Left_" />
+                    <SelectField field="Left_Included_Ledger" selected="False" input="Left_" />
+                    <SelectField field="Right_BusinessUnit" selected="False" rename="Right_BusinessUnit" input="Right_" />
+                    <SelectField field="Left_Included_Base" selected="False" input="Left_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="56">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="2610" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>!=</Operator>
+                <Field>IncludedAdjust</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2022-07-20 14:47:28</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>0</Operand>
+                  <StartDate>2022-07-20 14:47:28</StartDate>
+                  <EndDate>2022-07-20 14:47:28</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[IncludedAdjust] != 0</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="57">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2694" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="FYPer" selected="True" />
+                <SelectField field="SUB_ENTITY" selected="True" rename="BusinessUnit" />
+                <SelectField field="IncludedAdjust" selected="True" rename="IncludedExpenses" />
+                <SelectField field="COD_Project" selected="True" />
+                <SelectField field="COD_Job" selected="True" />
+                <SelectField field="EntityId" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="58">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="2802" y="558" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <AutoResetMode>Custom</AutoResetMode>
+              <MultiMetaInfo>
+                <MetaInfo name="#1">
+                  <RecordInfo>
+                    <Field name="FYPer" source="Formula: IIF(IsNull([_CurrentField_]),0,[_CurrentField_]) (BatchMacro)" type="Int32" column="1" />
+                    <Field name="EntityId" size="2" source="Summarize: GroupBy - EntityId" type="String" column="2" />
+                    <Field name="COD_Project" size="8" source="Summarize: GroupBy - COD_Project" type="String" column="3" />
+                    <Field name="COD_Job" size="1073741823" source="Summarize: GroupBy - CHAVE" type="V_WString" column="4" />
+                    <Field name="BusinessUnit" size="15" source="Formula: [_CurrentField_]" type="String" column="5" />
+                    <Field name="IncludedExpenses" source="Formula: [Included_Ledger]-[Included_Base]" type="Float" column="6" />
+                  </RecordInfo>
+                </MetaInfo>
+                <MetaInfo name="#2">
+                  <RecordInfo>
+                    <Field name="FYPer_Key" source="File: aka:Conexao322|||Select gxzu2adbp322.BRdw.Dim_Calendar.Date_Key, gxzu2adbp322.BRdw.Dim_Calendar.FYPer_Key, gxzu2adbp322.BRdw.Dim_Calendar.EngDate From gxzu2adbp322.BRdw.Dim_Calendar" type="Int32" column="1" />
+                    <Field name="Entity" size="15" source="Formula: (Multiple Sources)" type="String" column="2" />
+                    <Field name="PROJECT" size="8" source="File: (Multiple Sources)" type="String" column="3" />
+                    <Field name="JOB" size="4" source="File: (Multiple Sources)" type="String" column="4" />
+                    <Field name="SUB_ENTITY" size="15" source="Formula: Right([SUB_ENTITY], 8)" type="String" column="5" />
+                    <Field name="AMT" source="Formula: (Multiple Sources)" type="Double" column="6" />
+                  </RecordInfo>
+                </MetaInfo>
+              </MultiMetaInfo>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ManualDelayed</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="60" Connection="Output" />
+      <Destination ToolID="69" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="61" Connection="Join" />
+      <Destination ToolID="60" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="60" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="62" Connection="Output" />
+      <Destination ToolID="61" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="66" Connection="Output" />
+      <Destination ToolID="61" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="63" Connection="Output" />
+      <Destination ToolID="62" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="64" Connection="Output" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="64" Connection="Output" />
+      <Destination ToolID="37" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="41" Connection="Output" />
+      <Destination ToolID="37" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="65" Connection="Output" />
+      <Destination ToolID="64" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="67" Connection="Output" />
+      <Destination ToolID="66" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="68" Connection="Output" />
+      <Destination ToolID="67" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="69" Connection="True" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="57" Connection="Output" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="69" Connection="True" />
+      <Destination ToolID="65" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="32" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="32" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="24" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Join" />
+      <Destination ToolID="24" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Join" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="27" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="27" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Join" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="True" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="True" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="True" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Join" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="12" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="12" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="36" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="36" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="75" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="36" Connection="Join" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="36" Connection="Left" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="37" Connection="Join" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="37" Connection="Left" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="39" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output" />
+      <Destination ToolID="55" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="53" Connection="Output" />
+      <Destination ToolID="55" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="40" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="43" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="43" Connection="Output26" />
+      <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="46" Connection="Output" />
+      <Destination ToolID="47" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="48" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="49" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="Output" />
+      <Destination ToolID="51" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="Output" />
+      <Destination ToolID="52" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="50" Connection="Output" />
+      <Destination ToolID="52" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output" />
+      <Destination ToolID="50" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="53" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="Join" />
+      <Destination ToolID="56" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="Left" />
+      <Destination ToolID="76" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="56" Connection="True" />
+      <Destination ToolID="57" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="58" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>FluxoExpensesCosts</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
